@@ -1,0 +1,161 @@
+:root {
+  --cell-size: 100px;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.description {
+  text-align: center;
+  margin-bottom: 3em;
+}
+
+.congratulations {
+  text-align: center;
+  color: hsla(95, 49%, 43%);
+  margin-top: 2em;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.chessboard {
+  user-select: none;
+  margin: 0 auto;
+  width: calc(var(--cell-size) * 4);
+}
+
+.main-layer {
+  display: grid;
+  /* grid-template-columns: repeat(8, var(--cell-size)); */
+}
+
+.square {
+  /* border: 2px solid black; */
+  height: var(--cell-size);
+  cursor: pointer;
+}
+
+.square img {
+  width: 100%;
+}
+
+.square.dark {
+  background: #ccc;
+}
+
+.square.light {
+  background: #eee;
+}
+
+.square.is-being-dragged {
+  background: hsla(220, 80%, 70%);
+}
+
+.square.is-being-dragged img {
+  opacity: 0.25;
+}
+
+.chessboard.drag-mode .square:not(.is-being-dragged):hover {
+  background: hsla(220, 80%, 85%);
+}
+
+.square.unreached-goal:not(.is-being-dragged) {
+  background: hsla(50, 70%, 70%);
+}
+
+.square.reached-goal:not(.is-being-dragged) {
+  background: hsla(95, 49%, 63%);
+}
+
+
+
+
+
+
+
+
+
+/* SOVEREIGN CHESS ----------------------- */
+
+.sovereign .square.dark {
+  background: hsl(48, 80%, 70%);
+}
+.sovereign .square.light {
+  background: hsl(48, 80%, 90%);
+}
+
+
+/* Lines. Using border-box like this breaks the sizing of the pieces -- increase width of vertical line to see */
+.sovereign .square {
+  box-sizing: border-box;
+}
+/* Horizontal line. Is off-center -- increase width to see */
+/* .sovereign .square:nth-child(n+113):nth-child(-n+128) { */
+.sovereign .square:nth-child(n+113):nth-child(-n+118),
+.sovereign .square:nth-child(n+123):nth-child(-n+128) {
+  border-bottom: 3px solid brown;
+}
+/* Vertical line. Is off-center -- increase width to see */
+.sovereign .square:nth-child(16n+8):nth-child(-n+96),
+.sovereign .square:nth-child(16n+8):nth-child(n+160) {
+  border-right: 3px solid brown;
+}
+
+/* Center TODO */
+.sovereign .square:nth-child(n+103):nth-child(-n+106) {
+  border-top: 3px solid black;
+}
+.sovereign .square:nth-child(n+151):nth-child(-n+154) {
+  border-bottom: 3px solid black;
+}
+.sovereign .square:nth-child(16n+106):nth-child(-n+154) {
+  border-right: 3px solid black;
+}
+.sovereign .square:nth-child(16n+103):nth-child(-n+154) {
+  border-left: 3px solid black;
+}
+
+/* Colored squares */
+.sovereign .square:nth-child(69), .sovereign .square:nth-child(188) {
+  background: red;
+}
+.sovereign .square:nth-child(76), .sovereign .square:nth-child(181) {
+  background: blue; /* navy */
+}
+.sovereign .square:nth-child(86), .sovereign .square:nth-child(171) {
+  background: yellow;
+}
+.sovereign .square:nth-child(91), .sovereign .square:nth-child(166) {
+  background: hsl(120, 100%, 40%); /* green */
+}
+.sovereign .square:nth-child(88), .sovereign .square:nth-child(169) {
+  background: hsl(320, 100%, 75%); /* pink */
+}
+.sovereign .square:nth-child(89), .sovereign .square:nth-child(168) {
+  background: hsl(270, 100%, 70%); /* violet */
+}
+.sovereign .square:nth-child(118), .sovereign .square:nth-child(139) {
+  background: hsl(37, 100%, 48%); /* orange */
+}
+.sovereign .square:nth-child(123), .sovereign .square:nth-child(134) {
+  background: skyblue; /* cyan */
+}
+.sovereign .square:nth-child(103), .sovereign .square:nth-child(154) {
+  background: hsl(0, 0%, 50%); /* slate (dark gray) */
+}
+.sovereign .square:nth-child(106), .sovereign .square:nth-child(151) {
+  background: hsl(0, 0%, 80%); /* ash (light gray) */
+}
+.sovereign .square:nth-child(120), .sovereign .square:nth-child(137) {
+  background: white;
+}
+.sovereign .square:nth-child(121), .sovereign .square:nth-child(136) {
+  background: black;
+}
